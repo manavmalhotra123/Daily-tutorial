@@ -1,0 +1,103 @@
+// CLASSES 
+/*
+structure: system defined data-type template that stores data of different type of 
+           data-types. # use of typedef: to give a sort of nick name to the structure.
+
+why classes if we have structures??
+- because the data hiding is not possible in case of structure
+- functions can not be used in the structures.
+- cannot handle real world problems
+- used to insert data only
+
+syntax of class:
+----------------------------------------------------------------------
+class name_of_class
+{
+private:
+    ( data )
+public:
+    name_of_class( args );
+    ~name_of_class();
+};
+
+name_of_class::name_of_class( args )
+{
+}
+
+name_of_class::~name_of_class()
+{
+} */
+
+// ----------------------------------------------------------------------
+
+#include<iostream>
+
+using namespace std;
+// defining the class
+class employee // name of the classs : 'employee'
+{
+     private:
+           int a,b,c;
+
+     public:
+           int d ,e;   // public variables that can be defined publically
+           void setdata(int a,int b,int c); // declaration of the function that will include in class
+           
+           // declaration and defining of the function 
+           void getdata(){
+            cout<<"the value of a is "<<a<<endl;
+            cout<<"the value of b is "<<b<<endl;
+            cout<<"the value of c is "<<c<<endl;
+            cout<<"the value of d is "<<d<<endl;
+            cout<<"the value of e is "<<e<<endl;
+           }
+
+};
+
+// defining the class function outside the class
+void employee ::setdata(int a1, int b1, int c1){
+    a=a1;
+    b=b1;
+    c=c1;
+}
+int main(){
+    // making object of the class 'employee'
+    employee coder;
+    coder.d=34; // assigning the value to the global variable d
+    coder.setdata(1,2,4);// assigning the values to a1 , b1 , c1
+    coder.getdata();// it will help to get the displayed output as defined in the function
+    /*  OUTPUT
+     the value of a is 1
+     the value of b is 2
+     the value of c is 4
+     the value of d is 34
+     the value of e is 9180096 (as variable not assigned with any value so it will give 
+                                   garbage value)
+    */
+    coder.e=45;
+    coder.getdata(); // here the garbage value of variable e will be eliminated and value 45 will assigned to it
+
+    /* like in python here we cannot define every variable in main function directly . the private variables can 
+    only be accesed by using the function defined in private section of the class */
+
+    // but the public variables can be defined anywhere in the program
+    return 0;
+}
+
+// A SUMMARY OF CLASS AND OBJECTS
+ // CLASSES AND OBJECTS:
+
+    // C++ -----> initially called ----> C with classes by strousstroup
+    // classes ----> extensions of structures.
+    // structures had limitation 
+                           //----> members are public    
+    // classes ---. structures + more 
+    // classes can have methods and properties.
+    // classes can make few members as private as well as public
+    // classes in C++ are typedef
+    // you can declare objects along with the class declaration
+       /*  class employee{};
+           coder,manav,anmol;    (it is the declaratio of the objects)
+       */
+    // coder.salary = 456; give error if the variable salary is private variable
+
